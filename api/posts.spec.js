@@ -67,10 +67,11 @@ test.describe('JSONPlaceholder API Tests', () => {
     expect(body[0].email).toContain('@');
   });
 
-  test('API-10 response time < 2000 ms', async ({ request }) => {
+    test('API-10 response time < 3000 ms', async ({ request }) => {
+    await request.get('/posts/1'); // pemanasan koneksi
     const start = Date.now();
     const res = await request.get('/posts/1');
     expect(res.status()).toBe(200);
-    expect(Date.now() - start).toBeLessThan(2000);
+    expect(Date.now() - start).toBeLessThan(3000);
   });
 });

@@ -41,7 +41,8 @@ test.describe('SauceDemo - Inventory, Cart & Checkout', () => {
   test('E2E-12 transaksi end-to-end dari login sampai selesai', async ({ page }) => {
     await page.click('[data-test="add-to-cart-sauce-labs-backpack"]');
     await page.click('.shopping_cart_link');
-    await expect(page.locator('.inventory_item_name')).toHaveText('Sauce Labs Backpack');
+    await expect(page).toHaveURL(/cart/);
+    await expect(page.locator('.cart_item .inventory_item_name')).toHaveText('Sauce Labs Backpack');
     await page.click('[data-test="checkout"]');
     await page.fill('[data-test="firstName"]', 'Budi');
     await page.fill('[data-test="lastName"]', 'Santoso');
