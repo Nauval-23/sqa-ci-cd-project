@@ -1,0 +1,35 @@
+ID,Feature,Scenario,Tipe,Test Data,Expected Result,Actual Result,Status
+TC-001,Login,Login valid standard_user,Positive,standard_user / secret_sauce,Masuk ke halaman Products,,Belum dijalankan
+TC-002,Login,Password salah,Negative,standard_user / wrong,Error "Username and password do not match",,Belum dijalankan
+TC-003,Login,Username salah,Negative,wrong_user / secret_sauce,Error "Username and password do not match",,Belum dijalankan
+TC-004,Login,Username kosong,Validation,"(kosong) / secret_sauce","Error ""Username is required""",,Belum dijalankan
+TC-005,Login,Password kosong,Validation,standard_user / (kosong),"Error ""Password is required""",,Belum dijalankan
+TC-006,Login,Dua field kosong,Validation,(kosong) / (kosong),"Error ""Username is required""",,Belum dijalankan
+TC-007,Login,User terkunci,Business rule,locked_out_user / secret_sauce,Error "user has been locked out",,Belum dijalankan
+TC-008,Login,Username case-sensitive,Boundary,STANDARD_USER / secret_sauce,Login ditolak,,Belum dijalankan
+TC-009,Login,Spasi di depan username,Boundary, standard_user / secret_sauce,Login ditolak atau di-trim (catat perilaku),,Belum dijalankan
+TC-010,Login,Akses /inventory.html tanpa login,Negative,URL langsung,Redirect ke login dengan pesan error,,Belum dijalankan
+TC-011,Logout,Logout dari menu,Positive,standard_user,Kembali ke halaman login,,Belum dijalankan
+TC-012,Logout,Tombol Back setelah logout,Negative,standard_user,Tidak bisa mengakses halaman Products,,Belum dijalankan
+TC-013,Inventory,Jumlah produk tampil,Positive,standard_user,6 produk tampil,,Belum dijalankan
+TC-014,Inventory,Setiap produk punya gambar unik,Positive,standard_user,Gambar berbeda tiap produk,,Belum dijalankan
+TC-015,Inventory,Gambar produk problem_user,Negative,problem_user,Gambar unik tiap produk (potensi bug),,Belum dijalankan
+TC-016,Sorting,Sort Name A to Z,Positive,Default,Urut A-Z,,Belum dijalankan
+TC-017,Sorting,Sort Name Z to A,Positive,Pilih Z to A,Urut Z-A,,Belum dijalankan
+TC-018,Sorting,Sort Price low to high,Positive,Pilih lohi,Harga naik,,Belum dijalankan
+TC-019,Sorting,Sort Price high to low,Positive,Pilih hilo,Harga turun,,Belum dijalankan
+TC-020,Sorting,Sorting problem_user,Negative,problem_user,Urutan berubah sesuai pilihan (potensi bug),,Belum dijalankan
+TC-021,Cart,Tambah 1 produk,Positive,Sauce Labs Backpack,Badge cart = 1,,Belum dijalankan
+TC-022,Cart,Tambah 3 produk,Boundary,3 produk,Badge cart = 3,,Belum dijalankan
+TC-023,Cart,Hapus produk dari inventory,Positive,Backpack,Badge hilang,,Belum dijalankan
+TC-024,Cart,Hapus produk dari halaman cart,Positive,Backpack,Item hilang dari cart,,Belum dijalankan
+TC-025,Cart,Cart tetap ada setelah refresh,Business rule,1 produk,Badge tetap 1,,Belum dijalankan
+TC-026,Cart,Tombol Remove problem_user,Negative,problem_user,Item terhapus (potensi bug),,Belum dijalankan
+TC-027,Checkout,Checkout tanpa first name,Validation,Isi last name dan zip,"Error ""First Name is required""",,Belum dijalankan
+TC-028,Checkout,Checkout tanpa last name,Validation,Isi first name dan zip,"Error ""Last Name is required""",,Belum dijalankan
+TC-029,Checkout,Checkout tanpa postal code,Validation,Isi first dan last name,"Error ""Postal Code is required""",,Belum dijalankan
+TC-030,Checkout,Checkout valid sampai selesai,Positive,Budi / Santoso / 63411,"Pesan ""Thank you for your order!""",,Belum dijalankan
+TC-031,Checkout,Total harga = item + pajak,Business rule,Backpack 29.99,Total sesuai perhitungan,,Belum dijalankan
+TC-032,Checkout,Cancel di halaman checkout,Positive,Klik Cancel,Kembali ke cart,,Belum dijalankan
+TC-033,Checkout,Checkout problem_user,Negative,problem_user,Form dapat diisi normal (potensi bug),,Belum dijalankan
+TC-034,Performance,Login performance_glitch_user,Non-functional,performance_glitch_user,Login selesai < 5 detik,,Belum dijalankan
