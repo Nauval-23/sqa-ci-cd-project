@@ -1,6 +1,9 @@
 const Calculator = require('../src/calculator');
 
 describe('Calculator Unit Tests', () => {
+       test('test sengaja gagal', () => {
+       expect(2 + 2).toBe(5);
+     });
   let calc;
 
   beforeEach(() => {
